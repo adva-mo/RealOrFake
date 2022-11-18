@@ -14,25 +14,14 @@ function App() {
     if (!isGame) return;
     let userGuess = target.id;
     let currectAnswer = data[current].fake;
-    if (userGuess === currectAnswer) {
-      console.log("correct!");
-      setCurrectAnswers((prev) => prev + 1);
-    } else {
-      console.log("wrong!");
-    }
+    userGuess === currectAnswer && setCurrectAnswers((prev) => prev + 1);
     if (current < 10) {
-      setMsg(
-        (prev) => `
-      ${data[current].fake}: 
-      ${data[current].msg}`
-      );
-      setCurrent((prev) => {
-        return prev + 1;
-      });
+      setMsg((prev) => `${data[current].fake}: ${data[current].msg}`);
+      setCurrent((prev) => prev + 1);
     } else {
       setMsg((prev) => data[current].msg);
-      checkScore();
       setisGame((prev) => !prev);
+      checkScore();
     }
   };
   const checkScore = () => {
@@ -45,16 +34,16 @@ function App() {
       <div className="main-box flex-row">
         {isGame ? (
           <div className="dinamic-box flex-row">
-            <button id="false" onClick={handleclick}>
+            <button id="real" onClick={handleclick}>
               Real
             </button>
-            <button id="true" onClick={handleclick}>
+            <button id="fake" onClick={handleclick}>
               Fake
             </button>
           </div>
         ) : (
           <div className="dinamic-box">
-            {isWinner ? <p>won</p> : <p>lost</p>}
+            {isWinner ? <p>You won!</p> : <p>lost!</p>}
             <button
               onClick={() => {
                 window.location.reload();
