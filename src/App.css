@@ -1,0 +1,36 @@
+body {
+  padding: 2rem 0;
+}
+.main-img {
+  width: 20rem;
+  /* height: 15rem; */
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+}
+.flex-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  /* flex-grow: 1; */
+}
+.main-box {
+  width: 100%;
+}
+.dinamic-box {
+  border: 1px solid black;
+  width: 20rem;
+  height: 13.2rem;
+}
+.buttons-container {
+  width: 100%;
+}
+.more-info-img {
+  width: 4rem;
+}

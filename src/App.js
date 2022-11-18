@@ -8,6 +8,7 @@ function App() {
   const [currectAnswers, setCurrectAnswers] = useState(0);
   const [msg, setMsg] = useState(null);
   const [isGame, setisGame] = useState(true);
+  const [isWinner, setisWinner] = useState(null);
 
   const handleclick = ({ target }) => {
     if (!isGame) return;
@@ -25,20 +26,21 @@ function App() {
         return prev + 1;
       });
     } else {
+      setMsg((prev) => data[current].msg);
       checkScore();
       setisGame((prev) => !prev);
     }
   };
   const checkScore = () => {
-    currectAnswers > 5 ? console.log("win") : console.log("lost");
+    currectAnswers > 5 ? setisWinner(true) : setisWinner(false);
   };
 
   return (
     <div className="App">
-      <h2>Is this image Real or Fake?</h2>
+      <h1>Is this image Real or Fake?</h1>
       <div className="main-box flex-row">
-        <div className="dinamic-box ">
-          <div>
+        {isGame ? (
+          <div className="dinamic-box flex-row">
             <button id="false" onClick={handleclick}>
               Real
             </button>
@@ -46,7 +48,11 @@ function App() {
               Fake
             </button>
           </div>
-        </div>
+        ) : (
+          <div className="dinamic-box flex-row">
+            {isWinner ? <p>won</p> : <p>lost</p>}
+          </div>
+        )}
         <img
           className="main-img"
           src={require(`../public/${current}.jpeg`)}
