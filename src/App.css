@@ -34,3 +34,6 @@ body {
 .more-info-img {
   width: 4rem;
 }
+.correct {
+  border: 2px red solid;
+}

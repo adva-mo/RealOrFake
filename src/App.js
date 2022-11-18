@@ -21,7 +21,11 @@ function App() {
       console.log("wrong!");
     }
     if (current < 10) {
-      setMsg((prev) => data[current].msg);
+      setMsg(
+        (prev) => `
+      ${data[current].fake}: 
+      ${data[current].msg}`
+      );
       setCurrent((prev) => {
         return prev + 1;
       });
