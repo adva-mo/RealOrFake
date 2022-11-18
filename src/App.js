@@ -49,8 +49,15 @@ function App() {
             </button>
           </div>
         ) : (
-          <div className="dinamic-box flex-row">
+          <div className="dinamic-box">
             {isWinner ? <p>won</p> : <p>lost</p>}
+            <button
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
+              new game
+            </button>
           </div>
         )}
         <img
