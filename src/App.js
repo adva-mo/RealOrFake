@@ -31,36 +31,39 @@ function App() {
   return (
     <div className="App">
       <h1>Is this image Real or Fake?</h1>
-      <div className="main-box flex-row">
-        {isGame ? (
-          <div className="dinamic-box flex-row">
-            <button id="real" onClick={handleclick}>
-              Real
-            </button>
-            <button id="fake" onClick={handleclick}>
-              Fake
-            </button>
-          </div>
-        ) : (
-          <div className="dinamic-box">
-            {isWinner ? <p>You won!</p> : <p>lost!</p>}
-            <button
-              onClick={() => {
-                window.location.reload();
-              }}
-            >
-              new game
-            </button>
-          </div>
-        )}
+      <div className="main-img-container">
         <img
           className="main-img"
           src={require(`../public/${current}.jpeg`)}
           alt="img"
         />
       </div>
+      <div className="main-box flex-row">
+        {isGame ? (
+          <>
+            <button id="real" onClick={handleclick}>
+              Real
+            </button>
+            <button id="fake" onClick={handleclick}>
+              Fake
+            </button>
+          </>
+        ) : (
+          <>
+            {isWinner ? <p>You won!</p> : <p>lost!</p>}
+            <button
+              id="new-game"
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
+              new game
+            </button>
+          </>
+        )}
+      </div>
       {msg && (
-        <div>
+        <div className="more-info-box">
           <p>{msg}</p>
           <img
             className="more-info-img"

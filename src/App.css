@@ -1,9 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap");
+* {
+  --primary-green: #00ff7f;
+  --primary-purple: #8a2be2;
+  --gray: #696969;
+}
 body {
   padding: 2rem 0;
+  font-family: "Open Sans", sans-serif;
+  color: var(--gray);
+  font-weight: 500;
 }
 .main-img {
-  width: 20rem;
-  /* height: 15rem; */
+  width: 15rem;
 }
 .App {
   display: flex;
@@ -18,22 +26,58 @@ body {
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  /* flex-grow: 1; */
 }
 .main-box {
   width: 100%;
+  justify-content: center;
+  align-items: center;
 }
-.dinamic-box {
-  border: 1px solid black;
-  width: 20rem;
-  height: 13.2rem;
-}
-.buttons-container {
-  width: 100%;
+.more-info-box {
+  border: #696969 1px solid;
+  border-radius: 5px;
+  width: 90%;
+  margin-top: 1rem;
 }
 .more-info-img {
   width: 4rem;
 }
 .correct {
   border: 2px red solid;
+}
+button {
+  border: none;
+  width: 7rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: larger;
+  font-weight: 600;
+  margin: 0 0.5rem;
+}
+#real {
+  color: #8a2be2;
+  background-color: #00ff7f;
+}
+#fake,
+#new-game {
+  color: #00ff7f;
+  background-color: #8a2be2;
+}
+#new-game {
+  width: fit-content;
+}
+.main-img-container {
+  height: 350px;
+}
+@media (max-width: 500px) {
+  .dinamic-box {
+    display: flex;
+    flex-direction: column;
+  }
+  #real,
+  #fake {
+    margin-top: 0.2rem;
+  }
+  .more-info-box {
+    width: 90vw;
+  }
 }
