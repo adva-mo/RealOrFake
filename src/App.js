@@ -50,7 +50,11 @@ function App() {
           </>
         ) : (
           <>
-            {isWinner ? <p>You won!</p> : <p>lost!</p>}
+            {isWinner ? (
+              <p>You won! {currectAnswers}/10</p>
+            ) : (
+              <p>lost!{currectAnswers}/10</p>
+            )}
             <button
               id="new-game"
               onClick={() => {
